@@ -102,7 +102,7 @@ const FavoritoCard = ({ favorito }) => {
             onError={(e) => { e.target.style.display = 'none'; }}
           />
         )}
-        <span className="truncate font-medium">{favorito.titulo}</span>
+        <span className="truncate font-medium text-xs py-0.5">{favorito.titulo}</span>
       </div>
       
       <div className="flex items-center gap-1 flex-shrink-0" onClick={(e) => e.stopPropagation()}>
@@ -155,4 +155,4 @@ const FavoritoCard = ({ favorito }) => {
   );
 };
 
-export default FavoritoCard; 
+export default FavoritoCard;

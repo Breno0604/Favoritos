@@ -104,7 +104,7 @@ const Secao = ({ secao, favoritosSecao, isDropTarget }) => {
           ) : (
             <ChevronDown className="h-5 w-5 mr-2" />
           )}
-          <span className="font-medium">
+          <span className="font-medium text-sm py-1">
             {secao.titulo}
           </span>
         </div>
@@ -141,7 +141,7 @@ const Secao = ({ secao, favoritosSecao, isDropTarget }) => {
           items={favoritosSecao.map(favorito => favorito.id)}
           strategy={verticalListSortingStrategy}
         >
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 p-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-4 p-4">
             {favoritosSecao.map(favorito => (
               <FavoritoCard key={favorito.id} favorito={favorito} />
             ))}
@@ -199,4 +199,4 @@ const Secao = ({ secao, favoritosSecao, isDropTarget }) => {
   );
 };
 
-export default Secao; 
+export default Secao;
