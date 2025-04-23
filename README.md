@@ -14,17 +14,18 @@ Um aplicativo web moderno para gerenciar seus favoritos da web de forma organiza
 
 ## Tecnologias Utilizadas
 
-- **Frontend**: React 19, Vite, Tailwind CSS
+- **Frontend**: React 19, Vite
 - **UI Components**: Shadcn UI
 - **Gerenciamento de Estado**: React Context API
 - **Back-end**: Supabase
 - **Drag-and-Drop**: dnd-kit
 - **Estilização**: Tailwind CSS
 - **Exportação/Importação**: SheetJS
+- **Outras**: clsx, tailwind-merge, lucide-react
 
 ## Instalação e Uso
 
-Consulte o arquivo `instrucoes.md` para obter instruções detalhadas sobre como configurar e executar o aplicativo.
+Para instruções detalhadas sobre como configurar e executar o aplicativo, consulte o [arquivo de instruções](instrucoes.md).
 
 ## Estrutura do Projeto
 
