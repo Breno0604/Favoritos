@@ -17,4 +17,4 @@
   [headers.values]
     X-Frame-Options = "DENY"
     X-XSS-Protection = "1; mode=block"
-    Content-Security-Policy = "default-src 'self'; connect-src 'self' https://*.supabase.co; img-src 'self' data: https://*.google.com https://*.githubusercontent.com https://t3.gstatic.com; script-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com https://unpkg.com; style-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com;"
+    Content-Security-Policy = "default-src 'self'; connect-src 'self' https://*.supabase.co; img-src 'self' data: https://*.google.com https://*.githubusercontent.com https://t1.gstatic.com https://t2.gstatic.com https://t3.gstatic.com https://*.gstatic.com; script-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com https://unpkg.com; style-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com;"
