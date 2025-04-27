@@ -13,7 +13,7 @@ const ToastManager = () => {
 function App() {
   return (
     <FavoritosProvider>
-      <div className="min-h-screen w-full bg-gray-50 flex flex-col">
+      <div className="w-full bg-gray-50 flex flex-col">
         <Header />
         <main className="flex-1 w-full overflow-auto">
           <ListaFavoritos />

@@ -65,6 +65,13 @@ export const FavoritosProvider = ({ children }) => {
       const favoritosData = await supabaseService.getFavoritos();
       setFavoritos(favoritosData);
       
+      // Inicializar todas as seções como fechadas ao carregar os dados
+      const todasSecoesFechadas = {};
+      secoesData.forEach(secao => {
+        todasSecoesFechadas[secao.id] = true;
+      });
+      setSecoesFechadas(todasSecoesFechadas);
+      
       adicionarToast(TOAST_TYPES.SUCCESS, 'Dados carregados com sucesso');
     } catch (error) {
       console.error('Erro ao carregar dados:', error);
@@ -79,6 +86,17 @@ export const FavoritosProvider = ({ children }) => {
     carregarDados();
   }, [carregarDados]);
 
+  // Alternar estado de abertura/fechamento de uma seção
+  const alternarSecao = (id) => {
+    setSecoesFechadas(prevState => {
+      const novoEstado = {
+        ...prevState,
+        [id]: !prevState[id]
+      };
+      return novoEstado;
+    });
+  };
+
   // Adicionar seção
   const adicionarSecao = async (novaSecao) => {
     try {
@@ -86,6 +104,12 @@ export const FavoritosProvider = ({ children }) => {
         ...novaSecao,
         ordem: secoes.length
       });
+      
+      // Adicionar a nova seção como fechada por padrão
+      setSecoesFechadas(prevState => ({
+        ...prevState,
+        [secao.id]: true
+      }));
       
       setSecoes(secoesAtuais => [...secoesAtuais, secao]);
       adicionarToast(TOAST_TYPES.SUCCESS, 'Seção adicionada com sucesso');
@@ -125,6 +149,13 @@ export const FavoritosProvider = ({ children }) => {
       
       // Remover favoritos associados à seção
       setFavoritos(favoritosAtuais => favoritosAtuais.filter(favorito => favorito.secao_id !== id));
+      
+      // Remover a seção do estado de fechado/aberto
+      setSecoesFechadas(prevState => {
+        const novoEstado = { ...prevState };
+        delete novoEstado[id];
+        return novoEstado;
+      });
       
       adicionarToast(TOAST_TYPES.SUCCESS, 'Seção excluída com sucesso');
       return true;
@@ -210,14 +241,6 @@ export const FavoritosProvider = ({ children }) => {
       adicionarToast(TOAST_TYPES.ERROR, 'Erro ao atualizar ordem dos favoritos');
       throw error;
     }
-  };
-
-  // Alternar estado de abertura/fechamento de uma seção
-  const alternarSecao = (id) => {
-    setSecoesFechadas(prevState => ({
-      ...prevState,
-      [id]: !prevState[id]
-    }));
   };
 
   // Obter favoritos de uma seção específica

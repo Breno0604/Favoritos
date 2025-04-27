@@ -77,12 +77,12 @@ const Secao = ({ secao, favoritosSecao, isDropTarget }) => {
   return (
     <div 
       style={{ opacity: isDragging ? 0.5 : 1, zIndex: isDragging ? 10 : 1 }}
-      className={`mb-4 rounded-md overflow-hidden bg-white shadow-sm secao-container ${isDropTarget ? 'drop-target' : ''}`}
+      className={`mb-4 rounded-xl overflow-hidden bg-white shadow-sm border border-gray-300 secao-container ${isDropTarget ? 'drop-target' : ''}`}
     >
       {/* Cabeçalho da seção */}
       <div 
         ref={setNodeRef}
-        className="flex items-center justify-between p-3 cursor-pointer"
+        className="flex items-center justify-between p-3 cursor-pointer rounded-xl"
         style={{ 
           backgroundColor: secao.cor_fundo || '#f3f4f6', 
           color: secao.cor_texto || '#111827',
@@ -141,7 +141,7 @@ const Secao = ({ secao, favoritosSecao, isDropTarget }) => {
           items={favoritosSecao.map(favorito => favorito.id)}
           strategy={verticalListSortingStrategy}
         >
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-4 p-4">
+          <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-4 p-4">
             {favoritosSecao.map(favorito => (
               <FavoritoCard key={favorito.id} favorito={favorito} />
             ))}
